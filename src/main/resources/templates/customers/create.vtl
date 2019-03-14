@@ -1,0 +1,26 @@
+<div class="little_to_right">
+
+<p class="pageHeader">Register Your Details</p>
+
+<form action="/customers" method="post">
+
+
+    <label for="customerName"> Name:</label>
+    <input class="inputbox" type="text" name="customerName" required="true" id="customerName"> <br><br>
+
+    <label for="customerAddress"> Address:</label>
+    <input class="inputbox" type="text" name="customerAddress" required="true" id="customerAddress">
+
+
+    <label for="shop" hidden> Shop </label>
+    <select id="shop" name="shop" hidden>
+        #foreach  ($shop in $shops)
+        <option value="$shop.getId()">$shop.getShopName()</option>
+        #end
+    </select> <br><br>
+
+    <input type="submit" value="Save" class="button">
+
+
+</form>
+</div>

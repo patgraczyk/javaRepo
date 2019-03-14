@@ -1,0 +1,130 @@
+
+#if ($basketTotal != 0)
+
+<div class="main_confirmation_body little_to_right">
+
+    <div class="purchase_confirmation">
+
+        <div class="top_bar center">
+        <p id="confirmation_sent_white_text">Your order has been sent to the farms.</p>
+        </div>
+
+        <div class="">
+            <p>Your basket total: £<b>$basketTotal</b></p>
+        <p>Products that you will receive: </p>
+
+            <div class="flexing_products">
+        #foreach ($entry in $customer.giveMeLastBasket().getProductsInBasket())
+           <div class="confirmation_product">
+        <p>$entry.getProductName()</p>
+            </div>
+        #end
+        </div>
+    </div>
+
+    <div class="usedFarms">
+        <h3 class="">Farms which you have supported:</h3>
+        <div class="flexing_farms">
+            #foreach ($entry in $farmsFromOrder)
+            <div class="confirmation_farm">
+                <p><b>Your farmer</b>: $entry.getFarmerName()</p>
+                <p><b>Farm name</b>: $entry.getFarmName()</p>
+                <p><b>About the farm</b>: $entry.getBio()</p>
+            </div>
+            #end
+        </div>
+    </div>
+
+
+
+    <div class="used_tags">
+        <h3>Products you've bought are:</h3>
+        #foreach($entry in $tagsFromOrder)
+        <div class="confirmation_tag">
+        <p>$entry.getDescription()</p>
+        </div>
+        #end
+    </div>
+ </div>
+
+
+    <div class="main_environment_info">
+
+        <div class="environmental summary">
+            <h5> Because you shop locally, you saved $totalEmissionsSaved
+                tonnes CO2e. <br>
+                You saved $plasticSaving tonnes CO2e by not using standard supermarket packaging.</h5>
+        </div>
+
+        <div class="environmental info ">
+
+            <div class="environmental summary">
+                <h5> Emissions of products you've bought: </h5>
+            </div>
+
+            <div class="little_to_right">
+            <p> Buying with our farms: </p>
+
+            <div class="w3-container">
+                <div class="w3-light-grey">
+                    <div class="w3-container w3-green" style="width:45%">tonnes CO2e:$totalEmissionsOurShop </div>
+                </div>
+            </div>
+
+            <p> Buying same products from conventional supermarket: </p>
+
+            <div class="w3-container">
+                <div class="w3-light-grey">
+                    <div class="w3-container w3-red" style="width:70%">tonnes CO2e:$totalEmissionsConventionalShop </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+        <div class="environmental travel">
+            <div class="environmental summary">
+                <h5> Distance environmental impact:</h5>
+            </div>
+
+            <div class="little_to_right">
+                <p> Your products will travel <b>$totalMileageBasket</b> miles from our farms and this will create :</p>
+            <div class="w3-container">
+                <div class="w3-light-grey">
+                    <div class="w3-container w3-green" style="width:0.5%">tonnesCO2e:$foodEmissionsOurStore </div>
+                </div>
+            </div>
+
+            <p>Emissions of products traveling from the conventional supermarket</p>
+
+            <div class="w3-container">
+                <div class="w3-light-grey">
+                    <div class="w3-container w3-red" style="width:90%">tonnesCO2e:$foodEmissionsConventionalStore </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+</div>
+
+
+#else
+
+<p>Order is empty.</p>
+
+<form action="/shop" method="post">
+    <input class="inputbox" type="text" name="customerId" hidden value="$customer.getId()" id="customerId">
+    <input type="submit" value="Back to shop" class="btn">
+</form>
+
+#end

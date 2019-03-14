@@ -1,0 +1,32 @@
+<div class="little_to_right">
+
+<h3>Stock List</h3>
+
+
+<div>
+    <a href= "/products/new" class="button center">New Product</a>
+</div>
+
+<table>
+    <tr>
+        <th> Name</th>
+        <th> Weight </th>
+        <th> GroupType </th>
+        <th> Category (Tag) </th>
+        <th> Farm </th>
+        <th> Price </th>
+
+        <th></th>
+    </tr>
+    #foreach ($product in $products)
+    <tr>
+        <td>$product.getProductName()</td>
+        <td>$product.getWeight()</td>
+        <td>$product.getGroupType()</td>
+        <td>$product.getTag()</td>
+        <td>£$product.getPrice()</td>
+        <td><a href="/products/$product.getId()" class="button center">Details</a></td>
+    </tr>
+    #end
+</table>
+</div>

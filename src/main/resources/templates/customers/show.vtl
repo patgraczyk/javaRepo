@@ -1,0 +1,47 @@
+<div class="customer_profile little_to_right">
+
+<p class="page_header">Customer details</p>
+
+<section class="customer_table">
+    <table>
+        <tr>
+            <th> Name</th>
+            <th> Address</th>
+            <th> Actions</th>
+        </tr>
+        <tr>
+            <td>$customer.getCustomerName()</td>
+            <td>$customer.getCustomerAddress()</td>
+            <td>
+                <form action="/customers/$customer.getId()/delete" method="post">
+                    <input type="submit" value="Delete" class="button center">
+                </form>
+            </td>
+            <td>
+                <form action="/customers/$customer.getId()/edit" method="get">
+                    <input type="submit" value="Edit" class="button center">
+                </form>
+            </td>
+        </tr>
+    </table>
+</section>
+
+<!--<section class="environmental_inpact_info_summary">-->
+    <!--<p>summary of all environmental impact here</p>-->
+
+<!--</section>-->
+
+
+<section class="historical_baskets_here">
+    <p>History of your purchases</p>
+
+
+</section>
+#foreach ($array in $allProductsYouhaveBought)
+    <h5>Basket:</h5>
+    #foreach($product in $array)
+        <p>$product.getProductName()</p>
+    #end
+#end
+</div>
+

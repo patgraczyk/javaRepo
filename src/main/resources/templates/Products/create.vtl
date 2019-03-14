@@ -1,0 +1,62 @@
+<div class="new_product_page little_to_right">
+
+<p> Create your new product </p>
+
+
+<form action="/products" method="post">
+
+
+    <label for="productName"> Name:</label>
+    <input class="inputbox" type="text" name="productName" required="true" id="productName"> <br><br>
+
+    <label for="productWeight"> Weight:</label>
+    <input class="inputbox" type="number" name="productWeight" required="true" min="0" step="0.1" id="productWeight"> <br><br>
+
+    <label for="Tag"> Tag </label>
+    <select id="tag" name="tag" >
+        #foreach ($tag in $tags)
+        <option value="$tag">$tag.getDescription()</option>
+        #end
+    </select><br><br>
+
+
+    <label for="FoodGroupType"> Food Group Type </label>
+<select id ="foodGroupType" name="foodGroupType">
+    #foreach ($foodGroupType in $foodgrouptypes)
+    <option value="$foodGroupType">$foodGroupType </option>
+    #end
+</select><br><br>
+
+
+    <select id="shop" hidden name="shop" >
+        #foreach  ($shop in $shops)
+        <option value="$shop.getId()">$shop.getShopName()</option>
+        #end
+    </select><br>
+
+    <label for="farm"> Farm </label>
+    <select id="farm" name="farm" >
+        #foreach ($farm in $farms)
+        <option value="$farm.getId()">$farm.getFarmName()</option>
+        #end
+    </select><br>
+
+
+    <label for="basket" hidden> basket </label>
+    <select id="basket" name="basket" hidden >
+        #foreach  ($basket in $baskets)
+        <option value="$basket.getId()"> $basket</option>
+        #end
+    </select><br>
+
+    <label for="price"> Price:</label>
+    <input class="inputbox" type="number" name="price" required="true" min="0" step="0.01" id="price"><br><br>
+
+    <label for="quantity"> Quantity:</label>
+    <input class="inputbox" type="number" name="quantity" required="true" min="0" step="1" id="quantity"><br><br>
+
+    <input type="submit" value="Save" class="button"><br><br>
+
+</form>
+
+</div>

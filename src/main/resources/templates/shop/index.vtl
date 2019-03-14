@@ -1,0 +1,49 @@
+<div class="main_shop_body">
+
+    <div class="top_bar">
+        <div class="customerHello">
+        <p>Welcome $customer.getCustomerName()</p>
+        <p><i class="fas fa-shopping-basket"></i> 0</p>
+        </div>
+    </div>
+
+<div class="shop_image">
+   .
+</div>
+
+
+<div class="main_shop">
+
+    <form action="/confirmation" method="post">
+        <table class="bigger_font">
+            <tr>
+                <th> Name</th>
+                <th> Weight</th>
+                <th> GroupType</th>
+                <th> Tag</th>
+                <th> Price</th>
+                <th> Buy</th>
+            </tr>
+
+            #foreach ($product in $allProducts)
+            <tr>
+                <td>$product.getProductName()</td>
+                <td>$product.getWeight()</td>
+                <td>$product.getGroupType().getDescription()</td>
+                <td>$product.getTag().getDescription()</td>
+                <td>£$product.getPrice()</td>
+
+                <td>
+                    <input type="checkbox" id="$product.getId()" value="$product.getId()" name="prod_$product.getId()">
+                </td>
+            </tr>
+            #end
+        </table>
+        <input class="inputbox" type="text" name="customerId" hidden value="$customer.getId()" id="farmer_name">
+
+        <input type="submit" value="Order" class="btn" id="buy_button">
+    </form>
+
+</div>
+
+</div>

@@ -1,0 +1,29 @@
+<div class="little_to_right">
+
+<p> Edit your details </p>
+
+
+<form action="/customers/$customer.getId()" method="post">
+
+
+    <label for="customerName"> Name:</label>
+    <input class="inputbox" type="text" name="customerName" required="true" id="customerName" value="$customer.getCustomerName()">
+
+    <label for="customerAddress"> Address:</label>
+    <input class="inputbox" type="text" name="customerAddress" required="true" id="customerAddress" value="$customer.getCustomerAddress()">
+
+
+    <select  hidden id="shop" name="shop">
+
+        #foreach ($shop in $shops)
+        #if ($shop.getId() == $customer.getShop().getId())
+        <option value="$shop.getId()" selected> $shop.getShopName() </option>
+        #end
+        #end
+    </select>
+
+
+    <input type="submit" value="Save" class="button">
+</form>
+
+</div>

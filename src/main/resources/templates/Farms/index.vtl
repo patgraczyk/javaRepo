@@ -1,0 +1,37 @@
+<div class="little_to_right">
+
+<p class="pag_header">All farms</p>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Farm name</th>
+        <th>Actions</th>
+    </tr>
+
+    #foreach($farm in $farms)
+    <tr>
+        <td>$farm.getId()</td>
+        <td>$farm.getFarmName()</td>
+        <td>
+            <form class= "button" action="/farms/$farm.getId()" method="get">
+                <input type="submit" value="Details" class="button">
+            </form>
+        </td>
+        <td>
+             <form class= "button" action="/farms/$farm.getId()/delete" method="post">
+                <input type="submit" value="Delete" class="button">
+            </form>
+        </td>
+    </tr>
+
+    #end
+
+</table>
+
+<td>
+    <form class= "button" action="/farms/new" method="get">
+        <input type="submit" value="Register new Farm" class="button">
+    </form>
+</td>
+</div>

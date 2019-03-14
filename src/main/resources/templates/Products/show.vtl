@@ -1,0 +1,50 @@
+<div class="little_to_right">
+
+<p> Selected product </p>
+
+<table>
+    <tr>
+        <th> Name</th>
+        <th> Weight </th>
+        <th> GroupType </th>
+        <th> Category (Tag) </th>
+        <th> Farm </th>
+        <th> Price </th>
+
+
+    </tr>
+    <tr>
+        <td>$product.getProductName()</td>
+        <td>$product.getWeight()</td>
+        <td>$product.getGroupType()</td>
+        <td>$product.getTag()</td>
+        <td>$product.getFarm().getFarmName()</td>
+        <td>£ $product.getPrice()</td>
+
+    </tr>
+</table> <br>
+
+
+<p> Environmental Footprint of your product </p>
+
+<table>
+    <tr>
+        <th>Product emissions </th>
+        <td>$product.emissionsOfProduct() tonnes CO2e</td>
+    </tr>
+    <tr>
+        <th>Foodmiles emissions </th>
+        <td>$product.emissionsOfFoodMilesTravelled() tonnes CO2e </td>
+    </tr>
+</table> <br>
+
+<a href="/products/$product.getId()/edit" class="button center">Edit</a>
+
+<form action="/products/$product.getId()/delete" method="post">
+    <input type="submit" value="Delete" class="button center">
+</form>
+
+
+<a href="/products" class="button center">Back to list</a>
+
+</div>

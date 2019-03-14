@@ -1,0 +1,62 @@
+<div class="little_to_right">
+
+<h3 class="pag_header">Farm details</h3>
+
+<table>
+    <tr>
+        <th>Farm Id</th>
+        <th>Farm name</th>
+        <th>Farmer name</th>
+
+        <th>Address</th>
+        <th>Fuel type</th>
+        <th>Actions</th>
+    </tr>
+
+    <tr>
+        <td>$farm.getId()</td>
+        <td>$farm.getFarmName()</td>
+        <td>$farm.getFarmerName()</td>
+        <td>$farm.getAddress()</td>
+        <td>$farm.getFuelConversionFactorType().getDescription()</td>
+        <td>
+            <form class="button" action="/farms/$farm.getId()/edit" method="get">
+                <input type="submit" value="Edit" class="button">
+            </form>
+        </td>
+        <td>
+            <form class="button" action="/farms/$farm.getId()/delete" method="post">
+                <input type="submit" value="Delete" class="button">
+            </form>
+        </td>
+    </tr>
+</table>
+
+<h3 class="pag_header">Farm info:</h3>
+<p>$farm.getBio()</p>
+
+
+<h3 class="pag_header">Products from Farm:</h3>
+
+
+<table>
+    <tr>
+        <th>Product Id</th>
+        <th>Product name</th>
+        <th>Group</th>
+        <th>Tag</th>
+        <th>Weight</th>
+    </tr>
+    <tr>
+    <tr>
+        #foreach ($product in $allProductsFromFarm)
+        <td>$product.getId()</td>
+        <td>$product.getProductName()</td>
+        <td>$product.getGroupType().getDescription()</td>
+        <td>$product.getTag().getDescription()</td>
+        <td>$product.getWeight()kg</td>
+    </tr>
+    #end
+
+</table>
+</div>

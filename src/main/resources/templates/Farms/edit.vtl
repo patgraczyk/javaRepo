@@ -1,0 +1,30 @@
+<div class="new_farm_page little_to_right">
+
+<!--<p class="pag_header">Edit farm</p>-->
+
+<form action="/farms/$farm.getId()" method="post">
+
+
+    <label for="farm_name"> Farm name:</label>
+    <input class="inputbox" value="$farm.getFarmName()" type="text" name="farm_name" required="true" id="farm_name">  <br> <br>
+
+    <label for="farmer_name">Farmer name:</label>
+    <input class="inputbox" type="text" value="$farm.getFarmerName()" name="farmer_name" required="true" id="farmer_name"> <br> <br>
+
+    <label for="bio"> Short bio:</label>
+    <input class="inputbox" type="text" value="$farm.getBio()" name="bio" required="true" id="bio"> <br> <br>
+
+    <label for="address">Farm address:</label>
+    <input class="inputbox" type="text" name="address" value="$farm.getAddress()" required="true" id="address"> <br> <br>
+
+    <label for="fuelType"> Fuel </label>
+    <select name="fuelType" id="fuelType">
+        #foreach ($fuelType in $fuelConversionFactorTypes)
+        <option value="$fuelType">$fuelType.getDescription()</option>
+        #end
+    </select> <br> <br>
+
+    <input type="submit" value="Save Farm edits" class="button">
+</form>
+
+</div>

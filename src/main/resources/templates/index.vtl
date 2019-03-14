@@ -1,0 +1,43 @@
+
+
+<div class="main_container">
+
+    <section class="customersSignIn">
+        <section class="signInOn">
+
+        <form action="/shop" method="post">
+            <label for="customer_sign_in"> Customer login </label>
+            <select name="customerId" id="customer_sign_in" class="block_center">
+                #foreach ($customer in $customers)
+                <option value="$customer.getId()">$customer.getCustomerName()</option>
+                #end
+            </select>
+
+            <input type="submit" value="Sign In" class="button block_center" id="font_over1">
+        </form>
+            <label for="customerSignOn">No account?</label>
+        <form action="/customers/new" method="get" id="customerSignOn">
+            <input type="submit" value="Sign Up" class="button block_center" id="font_over2">
+        </form>
+        </section>
+    </section>
+
+    <section class="farmersSignIn">
+        <section class="signInOn">
+        <form action="/farms" method="get">
+            <label for="farmer_login"> Farmer login </label>
+            <select name="farmerLogin" id="farmer_login" class="block_center">
+                #foreach ($farm in $farms)
+                <option value="$farm.getFarmerId()">$farm.getFarmerName()</option>
+                #end
+            </select>
+            <input type="submit" value="Sign In" class="button block_center" id="font_over3">
+        </form>
+            <label for="farmSignOn">No account?</label>
+            <form action="/farms/new"  method="get" id="farmSignOn">
+            <input type="submit" value="Sign Up" class="button block_center" id="font_over4">
+        </form>
+        </section>
+    </section>
+</div>
+

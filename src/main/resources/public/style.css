@@ -1,0 +1,186 @@
+
+
+/*  ====================================GLOBAL: */
+body {
+  font-family: 'Noto Sans', sans-serif;
+  margin: 0rem;
+  padding: 0rem;
+}
+
+
+
+/*  ====================================NAV: */
+
+nav{
+    margin-left: 2rem;
+}
+
+
+/*  ====================================tables: */
+
+table {
+  border-collapse: collapse;
+  margin: 10px;
+  table-layout: fixed;
+}
+
+tr {
+  text-align: left;
+  word-wrap:break-word;
+}
+
+td, th {
+  text-align: left;
+  margin: 10px;
+
+}
+
+td {
+  padding: 0.3rem 2rem 0.5rem 2rem;
+}
+
+th {
+  padding: 0.3rem 2rem 0.5rem 2rem;
+  border-bottom: 0.3rem solid papayawhip;
+  word-wrap:break-word;
+}
+
+
+.main_container {
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    display: flex;
+}
+
+.block_center{
+margin: auto;
+display: block;
+}
+/*  ====================================LANDING: */
+
+
+.customersSignIn,
+.farmersSignIn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.signInOn{
+  font-size: 2rem;
+  color: #fff;
+  margin: auto;
+}
+
+.customersSignIn{
+    background-image: url("/img/ja-ma-216495-unsplash.jpg");
+    background-size: cover;
+}
+
+
+.farmersSignIn{
+    background-image: url("/img/farmSignInOnlinh-nguyen-166-unsplash.jpg");
+    background-size: cover;
+}
+
+.btn_landing{
+  border: 0px none;
+  border-radius: 8px;
+  padding: 14px 40px;;
+  color: white;
+  cursor:pointer;
+  background-color: #0D2557;
+  font-size: 25px;
+  text-decoration: none;
+  height: 60px;
+}
+
+.btn_landing a:hover,
+.btn_landing a:visited,
+.btn_landing a:active {
+    color: white;
+
+}
+/*  ====================================SHOP: */
+
+.main_shop_body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.top_bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    max-height: 2.5rem;
+    font-size: 1.5rem;
+     color: #fff;
+     background-color: #399B40;
+
+}
+.top_bar p {
+    display: inline;
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+.shopImage,
+.mainShop {
+    flex: 2;
+}
+ .top_bar {
+    flex: 1;
+}
+
+
+.bigger_font{
+    font-size: 1.5rem;
+}
+
+
+.shop_image{
+    min-height: 40%;
+    background-image: url(/img/Ricardo.jpg);
+    background-size: cover;
+}
+
+
+.main_shop{
+    margin: 1rem auto 1rem;
+    display: flex;
+   justify-content: center;
+}
+
+.btn {
+    display: flex;
+}
+
+#buy_button {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #399B40;
+    color: white;
+    font-size: 1rem;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=checkbox] {
+    width: 30px;
+    height:30px;
+}
+
+
+#font_over1,
+#font_over2,
+#font_over3,
+#font_over4,
+#customer_sign_in,
+#farmer_login {
+    font-size: 1rem;
+
+}

@@ -1,0 +1,58 @@
+<div class="little_to_right">
+
+<p> Product to edit </p>
+
+<form action="/products/$product.getId()" method="post">
+
+
+    <label for="productName"> Name:</label>
+    <input class="inputbox" type="text" name="productName" required="true" id="productName" value="$product.getProductName()">
+
+    <label for="productWeight"> Weight:</label>
+    <input class="inputbox" type="text" name="productWeight" required="true" id="productWeight"value="$product.getWeight()">
+
+    <select id="shop" hidden name="shop">
+        #foreach ($shop in $shops)
+        #if ($shop.getId() == $product.getShop().getId())
+    <option value="$shop.getId()" selected> $shop.getShopName() </option>
+        #end
+        #end
+    </select>
+
+
+    <label for="FoodGroupType"> Food Group Type </label>
+    <select id ="foodGroupType" name="foodGroupType">
+        #foreach ($foodGroupType in $foodgrouptypes)
+        <option value="$foodGroupType">$foodGroupType </option>
+        #end
+    </select>
+
+    <label for="Tag"> Tag </label>
+    <select id="tag" name="tag" >
+        #foreach ($tag in $tags)
+        <option value="$tag">$tag.getDescription()</option>
+        #end
+    </select>
+
+    <select id="basket" hidden name="basket" >
+        #foreach ($basket in $baskets)
+        <option value="$basket.getId()"> $basket </option>
+        #end
+    </select>
+
+    <label for="farm"> Farm </label>
+    <select id="farm" name="farm" >
+        #foreach ($farm in $farms)
+        #if ($farm.getId() == $product.getFarm().getId())
+        <option value="$farm.getId()">$farm.getFarmName()</option>
+        #end
+        #end
+    </select>
+    <label for="price"> Price:</label>
+    <input class="inputbox" type="number" name="price" required="true" id="price" min="0" step="0.01" value="$product.getPrice()">
+
+    <input type="submit" value="Save" class="button">
+
+</form>
+
+</div>
